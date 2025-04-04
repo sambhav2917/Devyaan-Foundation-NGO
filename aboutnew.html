@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | NGO Name</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #000;
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+         /* Navbar Styles */
+         .navbar {
+        background: linear-gradient(135deg, #000000, #333333); /* Black Gradient */
+        padding: 12px 20px;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+    }
+    
+    /* Navbar Container */
+    .nav-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    /* Logo */
+    .logo {
+        font-size: 22px;
+        font-weight: bold;
+        color: #FFFFFF; /* White */
+        text-decoration: none;
+    }
+    
+    /* Navbar Links */
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+    }
+    
+    .nav-link {
+        color: #FFFFFF; /* White */
+        font-size: 16px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        padding: 8px 12px;
+        position: relative;
+    }
+    
+    /* Hover Effect */
+    .nav-link::after {
+        content: "";
+        display: block;
+        height: 2px;
+        width: 0;
+        background: #F1F1F1; /* Light Gray */
+        position: absolute;
+        bottom: -4px;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+        width: 80%;
+    }
+    
+    /* Donate Button */
+    .donate-btn {
+        background: #FFFFFF; /* White */
+        color: #000000; /* Black */
+        padding: 8px 15px;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+    
+    .donate-btn:hover {
+        background: #F1F1F1; /* Light Gray */
+    }
+    
+    /* Mobile Responsive */
+    .menu-icon {
+        display: none;
+        font-size: 24px;
+        color: white;
+        cursor: pointer;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background: #000000;
+            text-align: center;
+            padding: 15px 0;
+        }
+    
+        .nav-links.active {
+            display: flex;
+        }
+    
+        .nav-link {
+            padding: 10px;
+            font-size: 18px;
+        }
+    
+        .menu-icon {
+            display: block;
+        }
+    }
+        /* Page content for demo */
+        .content {
+            padding: 2rem;
+            height: 2000px;
+            background-color: #f5f5f5;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1920x600') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-white {
+            background-color: white;
+        }
+
+        .section-gray {
+            background-color: #f5f5f5;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 36px;
+            color: #222;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #000;
+        }
+
+        .content-box {
+            background: white;
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+
+        .content-box h3 {
+            margin-bottom: 20px;
+            color: #222;
+            font-size: 24px;
+        }
+
+        .content-box p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .content-box ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .content-box li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        /* Organisation Structure */
+        .org-structure {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .org-level {
+            background: white;
+            border-radius: 5px;
+            padding: 25px;
+            width: 250px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .org-level:hover {
+            transform: translateY(-10px);
+        }
+
+        .org-level h4 {
+            margin-bottom: 15px;
+            color: #222;
+            font-size: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .org-level p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Mission/Vision Boxes */
+        .mv-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .mv-box {
+            flex: 1;
+            min-width: 300px;
+            background: #000;
+            color: white;
+            padding: 40px;
+            border-radius: 5px;
+        }
+
+        .mv-box h3 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: white;
+        }
+
+        .mv-box p {
+            color: #ddd;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000;
+            color: white;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin: 20px;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 20px;
+            color: white;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #bbb;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #bbb;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 30px;
+            }
+
+            .mv-box {
+                min-width: 100%;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    
+   <!-- Navbar -->
+   <nav style="background: #000; padding: 1rem; position: sticky; top: 0; z-index: 1000;">
+    <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
+        <a href="#" style="color: white; font-size: 1.5rem; font-weight: bold; text-decoration: none;">Devyaan<span style="color: #4CAF50;"> Foundation</span></a>
+        
+        <!-- Mobile menu button -->
+        <div id="mobile-menu" style="display: none; cursor: pointer; color: white; font-size: 1.5rem;">☰</div>
+        
+        <!-- Navigation links -->
+        <ul id="nav-links" style="display: flex; list-style: none; gap: 1.5rem; margin: 0; padding: 0; align-items: center;">
+            <li><a href="homenew.html" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; position: relative; padding: 0.5rem 0;">Home</a></li>
+            <li><a href="aboutnew.html" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; position: relative; padding: 0.5rem 0;">About</a></li>
+           <!--  <li><a href="#" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; position: relative; padding: 0.5rem 0;">Activities</a></li>
+            <li><a href="#" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; position: relative; padding: 0.5rem 0;">Gallery</a></li> -->
+            <li><a href="contactnew.html" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; position: relative; padding: 0.5rem 0;">Contact</a></li>
+            <li><a href="donatenew.html" style="background: #4CAF50; color: white; padding: 0.5rem 1.25rem; border-radius: 4px; font-weight: 600; text-decoration: none; transition: background 0.3s;">Donate</a></li>
+        </ul>
+    </div>
+</nav>
+
+<script>
+    // Mobile responsiveness
+    function setupMobileMenu() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        
+        // Check screen width
+        if (window.innerWidth <= 768) {
+            mobileMenu.style.display = 'block';
+            navLinks.style.position = 'fixed';
+            navLinks.style.top = '70px';
+            navLinks.style.left = '-100%';
+            navLinks.style.width = '80%';
+            navLinks.style.height = 'calc(100vh - 70px)';
+            navLinks.style.background = '#111';
+            navLinks.style.flexDirection = 'column';
+            navLinks.style.alignItems = 'flex-start';
+            navLinks.style.padding = '2rem';
+            navLinks.style.gap = '1.5rem';
+            navLinks.style.transition = 'left 0.3s ease';
+            
+            // Toggle menu
+            mobileMenu.addEventListener('click', () => {
+                navLinks.style.left = navLinks.style.left === '-100%' ? '0' : '-100%';
+            });
+            
+            // Close menu when clicking a link
+            document.querySelectorAll('#nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.style.left = '-100%';
+                });
+            });
+        } else {
+            mobileMenu.style.display = 'none';
+            navLinks.style.position = 'static';
+            navLinks.style.width = 'auto';
+            navLinks.style.height = 'auto';
+            navLinks.style.background = 'transparent';
+            navLinks.style.flexDirection = 'row';
+            navLinks.style.padding = '0';
+        }
+    }
+
+    // Run on load and resize
+    window.addEventListener('load', setupMobileMenu);
+    window.addEventListener('resize', setupMobileMenu);
+</script>
+        
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>About Our NGO</h1>
+            <p>Committed to creating positive change and sustainable impact in our communities</p>
+        </div>
+    </section>
+
+    <!-- About Organisation Section -->
+    <section id="about" class="section section-white">
+        <div class="container">
+            <h2 class="section-title">About Our Organisation</h2>
+            <div class="content-box fade-in">
+                <p>Welcome to Devyaan Foundation, a charitable organization committed to social welfare, environmental preservation, and animal protection. Our mission is to uplift underprivileged communities, spread awareness about crucial social and environmental issues, and create a compassionate society where every individual and living being is treated with dignity and respect.</p>
+                
+                <p>At Devyaan Foundation, we believe that small actions lead to big changes. Through our various initiatives, we strive to provide essential services, education, and support to those in need while promoting sustainable living and humane treatment of animals.</p>
+                
+                <h3>Our Approach</h3>
+                <ul>
+                    <li><strong>Community-Centered:</strong> We believe in working with communities, not for them</li>
+                    <li><strong>Sustainable Solutions:</strong> Our programs are designed for long-term impact</li>
+                    <li><strong>Evidence-Based:</strong> We use data and research to guide our interventions</li>
+                    <li><strong>Collaborative:</strong> We partner with local organizations and stakeholders</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Organisation Structure Section -->
+    <section id="structure" class="section section-gray">
+        <div class="container">
+            <h2 class="section-title">Organisation Structure</h2>
+            <div class="content-box fade-in">
+                <p>At Devyaan Foundation, our organizational structure is designed to ensure efficient management, transparency, and impactful execution of our initiatives. Led by a dedicated Board of Trustees, our foundation operates through well-defined departments focusing on social welfare, education, healthcare, environmental conservation, and animal welfare. Each department is managed by experienced professionals, volunteers, and community leaders who work collaboratively to implement and oversee programs. We believe in grassroots engagement and participatory decision-making, ensuring that our initiatives effectively address real-world challenges. With a strong network of volunteers, donors, and partner organizations, we foster a structured yet flexible approach to drive meaningful change and serve communities in need.</p>
+            </div>
+            
+           
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section id="vision" class="section section-white">
+        <div class="container">
+            <h2 class="section-title">Our Vision</h2>
+            <div class="mv-container">
+                <div class="mv-box fade-in">
+                    <h3>Vision Statement</h3>
+                    <p>At Devyaan Foundation, our vision is to build a world where every individual has equal access to basic necessities, education, healthcare, and justice, ensuring a life of dignity and opportunity. We envision a society that thrives on compassion, sustainability, and inclusivity, where the underprivileged are empowered, the environment is preserved, and animals are treated with care and respect. Through long-term development programs, awareness initiatives, and community-driven efforts, we strive to create a future where no one is left behind, and humanity coexists harmoniously with nature. Our ultimate goal is to foster a self-sufficient, just, and humane world for generations to come.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section id="mission" class="section section-gray">
+        <div class="container">
+            <h2 class="section-title">Our Mission</h2>
+            <div class="mv-container">
+                <div class="mv-box fade-in delay-1">
+                    <h3>Mission Statement</h3>
+                    <p>At Devyaan Foundation, our mission is to uplift and empower underprivileged communities by providing access to food, shelter, education, healthcare, and legal aid, ensuring a life of dignity for all. We are committed to fostering social welfare, environmental conservation, and animal protection through impactful initiatives and awareness programs. By addressing fundamental human needs, advocating for justice, and promoting sustainable development, we strive to create a compassionate, equitable, and inclusive society where every individual—regardless of background—has the opportunity to thrive. Our mission is not just about relief; it’s about long-term transformation and empowerment for a better future.</p>
+                </div>
+                
+               
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>Welcome to Devyaan Foundation, a charitable organization committed to social welfare, environmental preservation, and animal protection.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>D-6/66, Shiv Durga Vihar Lakkarpur,
+                        Surajkund, Faridabad Haryana – 121009
+                        </p>
+                    <p>Phone: 9716606666</p>
+                    <p>Email:  devayaan001@gmail.com
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#about">About Our Organisation</a>
+                    <a href="#structure">Organisation Structure</a>
+                    <a href="#vision">Vision</a>
+                    <a href="#mission">Mission</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 [Devyaan Foundation]. All Rights Reserved </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+       
+     
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Update active link
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+        
+        // Change active link on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 300) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Animate elements when they come into view
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            elements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                observer.observe(element);
+            });
+        }
+        
+        // Initialize animations when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            animateOnScroll();
+        });
+    </script>
+
+    
+         
+
+     
+</body>
+</html>

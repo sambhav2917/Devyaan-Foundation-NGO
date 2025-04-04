@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate | Devyaan Foundation</title>
+    <style>
+        /* Navbar Styles (same as before) */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; }
+        .navbar { background: #000; padding: 15px 5%; position: sticky; top: 0; z-index: 1000; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { color: white; font-size: 1.5rem; font-weight: 700; text-decoration: none; }
+        .logo span { color: #4CAF50; }
+        .nav-links { display: flex; list-style: none; gap: 1.5rem; align-items: center; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 500; transition: all 0.3s; }
+        .nav-links a:hover { color: #4CAF50; }
+        .donate-btn { background: #4CAF50; color: white; padding: 8px 20px; border-radius: 4px; font-weight: 600; }
+        .donate-btn:hover { background: #45a049; }
+        .menu-toggle { display: none; cursor: pointer; color: white; font-size: 1.5rem; }
+
+        /* Donation Page Styles */
+        .donation-hero { 
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .donation-hero h1 { font-size: 2.5rem; margin-bottom: 20px; }
+        .donation-hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px; }
+        
+        .donation-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding: 50px 0;
+        }
+        
+        .donation-methods, .online-donation {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+        
+        .section-title {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #4CAF50;
+        }
+        
+        .bank-details { margin-bottom: 30px; }
+        .bank-details p { margin: 10px 0; }
+        .qr-code { text-align: center; margin: 20px 0; }
+        .qr-code img { max-width: 200px; border: 1px solid #ddd; padding: 10px; }
+        
+        .donation-amounts {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .amount-option {
+            background: #f5f5f5;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .amount-option:hover, .amount-option.selected {
+            border-color: #4CAF50;
+            background: #e8f5e9;
+        }
+        
+        .custom-amount { margin: 20px 0; }
+        .custom-amount input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .razorpay-btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+        
+        .razorpay-btn:hover { background: #45a049; }
+        
+        /* Footer Styles */
+        footer {
+            background: #000;
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        .footer-logo span {
+            color: #4CAF50;
+        }
+        
+        .footer-about p {
+            color: #bbb;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #222;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            transition: background 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: #4CAF50;
+        }
+        
+        .footer-links h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #4CAF50;
+        }
+        
+        .footer-contact p {
+            color: #bbb;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .footer-contact i {
+            margin-right: 10px;
+            color: #4CAF50;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #222;
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 70px);
+                background: #111;
+                flex-direction: column;
+                padding: 20px;
+                transition: left 0.3s;
+            }
+            .nav-links.active { left: 0; }
+            .menu-toggle { display: block; }
+            .donation-amounts { grid-template-columns: repeat(2, 1fr); }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+   <!-- Navbar -->
+   <nav style="background: #000; padding: 1rem; position: sticky; top: 0; z-index: 1000;">
+    <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
+        <a href="#" style="color: white; font-size: 1.5rem; font-weight: bold; text-decoration: none;">Devyaan<span style="color: #4CAF50;"> Foundation</span></a>
+        
+        <!-- Mobile menu button -->
+        <div id="mobile-menu" style="display: none; cursor: pointer; color: white; font-size: 1.5rem;">☰</div>
+        
+        <!-- Navigation links -->
+        <ul id="nav-links" style="display: flex; list-style: none; gap: 1.5rem; margin: 0; padding: 0; align-items: center;">
+            <li><a href="homenew.html" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; position: relative; padding: 0.5rem 0;">Home</a></li>
+            <li><a href="aboutnew.html" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; position: relative; padding: 0.5rem 0;">About</a></li>
+           <!--  <li><a href="#" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; position: relative; padding: 0.5rem 0;">Activities</a></li>
+            <li><a href="#" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; position: relative; padding: 0.5rem 0;">Gallery</a></li> -->
+            <li><a href="contactnew.html" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; position: relative; padding: 0.5rem 0;">Contact</a></li>
+            <li><a href="donatenew.html" style="background: #4CAF50; color: white; padding: 0.5rem 1.25rem; border-radius: 4px; font-weight: 600; text-decoration: none; transition: background 0.3s;">Donate</a></li>
+        </ul>
+    </div>
+</nav>
+
+<script>
+    // Mobile responsiveness
+    function setupMobileMenu() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        
+        // Check screen width
+        if (window.innerWidth <= 768) {
+            mobileMenu.style.display = 'block';
+            navLinks.style.position = 'fixed';
+            navLinks.style.top = '70px';
+            navLinks.style.left = '-100%';
+            navLinks.style.width = '80%';
+            navLinks.style.height = 'calc(100vh - 70px)';
+            navLinks.style.background = '#111';
+            navLinks.style.flexDirection = 'column';
+            navLinks.style.alignItems = 'flex-start';
+            navLinks.style.padding = '2rem';
+            navLinks.style.gap = '1.5rem';
+            navLinks.style.transition = 'left 0.3s ease';
+            
+            // Toggle menu
+            mobileMenu.addEventListener('click', () => {
+                navLinks.style.left = navLinks.style.left === '-100%' ? '0' : '-100%';
+            });
+            
+            // Close menu when clicking a link
+            document.querySelectorAll('#nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.style.left = '-100%';
+                });
+            });
+        } else {
+            mobileMenu.style.display = 'none';
+            navLinks.style.position = 'static';
+            navLinks.style.width = 'auto';
+            navLinks.style.height = 'auto';
+            navLinks.style.background = 'transparent';
+            navLinks.style.flexDirection = 'row';
+            navLinks.style.padding = '0';
+        }
+    }
+
+    // Run on load and resize
+    window.addEventListener('load', setupMobileMenu);
+    window.addEventListener('resize', setupMobileMenu);
+</script>
+
+    <!-- Donation Hero Section -->
+    <section class="donation-hero">
+        <div class="container">
+            <h1>Support Our Cause</h1>
+            <p>Your donation helps us continue our mission to create positive change in communities around the world.</p>
+        </div>
+    </section>
+
+    <!-- Donation Content -->
+    <div class="container donation-container">
+        <!-- Bank Transfer Section -->
+        <div class="donation-methods">
+            <h2 class="section-title">Bank Transfer</h2>
+            
+            <div class="bank-details">
+                <p><strong>Account Name:</strong> Devayaan Foundation 
+                </p>
+                <p><strong>Bank Name:</strong> IDFC FIRST Bank </p>
+                <p><strong>Account Number:</strong>  10220742540
+                </p>
+                <p><strong>IFSC Code:</strong> IDFB0021317</p>
+                <p><strong>Branch:</strong> Charwood village
+                    Faridabad</p>
+            </div>
+            
+            <div class="qr-code">
+                <h3>Scan to Donate</h3>
+                <img src="https://res.cloudinary.com/du7fsy8uw/image/upload/v1743762307/WhatsApp_Image_2025-04-04_at_12.55.56_76f0f077_lmccor.jpg" alt="Donation QR Code">
+                <p>Scan this QR code with your banking app to make a payment</p>
+            </div>
+        </div>
+
+        <!-- Online Donation Section -->
+        <div class="online-donation">
+            <h2 class="section-title">Online Donation</h2>
+            
+            <div class="donation-options">
+                <h3>Select Donation Amount</h3>
+                <div class="donation-amounts">
+                    <div class="amount-option" data-amount="500">₹500</div>
+                    <div class="amount-option" data-amount="1000">₹1,000</div>
+                    <div class="amount-option" data-amount="2000">₹2,000</div>
+                    <div class="amount-option" data-amount="5000">₹5,000</div>
+                    <div class="amount-option" data-amount="10000">₹10,000</div>
+                    <div class="amount-option" data-amount="other">Other</div>
+                </div>
+                
+                <div class="custom-amount" style="display: none;">
+                    <label for="amount">Enter Custom Amount (₹)</label>
+                    <input type="number" id="amount" placeholder="Enter amount">
+                </div>
+                
+                <button id="razorpay-btn" class="razorpay-btn">Donate Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo">Devyaan<span> Foundation</span></a>
+                    <p>We are dedicated to creating sustainable change in communities through education, healthcare, and empowerment initiatives.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="homenew.html">Home</a></li>
+                        <li><a href="aboutnew.html">About Us</a></li>
+                        <li><a href="">Our Programs</a></li>
+                        <li><a href="#">Get Involved</a></li>
+                        <li><a href="donatenew.html">Donate</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Programs</h3>
+                    <ul>
+                        <li><a href="#">Education</a></li>
+                        <li><a href="#">Healthcare</a></li>
+                        <li><a href="#">Women Empowerment</a></li>
+                        <li><a href="#">Disaster Relief</a></li>
+                        <li><a href="#">Community Development</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Contact Info</h3>
+                    <br>
+                    <p><i class="fas fa-map-marker-alt"></i> D-6/66, Shiv Durga Vihar Lakkarpur,Surajkund, Faridabad Haryana – 121009
+
+                    </p>
+                    <p><i class="fas fa-phone-alt"></i> +91 9716606666</p>
+                    <p><i class="fas fa-envelope"></i> devayaan001@gmail.com
+                    </p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Devyaan Foundation. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Donation Amount Selection
+        const amountOptions = document.querySelectorAll('.amount-option');
+        const customAmountDiv = document.querySelector('.custom-amount');
+        const amountInput = document.getElementById('amount');
+        let selectedAmount = 0;
+
+        amountOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                // Remove selected class from all options
+                amountOptions.forEach(opt => opt.classList.remove('selected'));
+                
+                // Add selected class to clicked option
+                option.classList.add('selected');
+                
+                if (option.dataset.amount === 'other') {
+                    customAmountDiv.style.display = 'block';
+                    selectedAmount = 0;
+                } else {
+                    customAmountDiv.style.display = 'none';
+                    selectedAmount = parseInt(option.dataset.amount);
+                }
+            });
+        });
+
+        // Razorpay Integration
+        document.getElementById('razorpay-btn').addEventListener('click', () => {
+            // Get the final amount
+            let amount = selectedAmount;
+            if (customAmountDiv.style.display === 'block') {
+                amount = parseInt(amountInput.value) || 0;
+            }
+            
+            if (amount <= 0) {
+                alert('Please select or enter a valid amount');
+                return;
+            }
+
+            // Razorpay checkout code
+            const options = {
+                key: 'YOUR_RAZORPAY_KEY_ID', // Replace with your Razorpay Key ID
+                amount: amount * 100, // Amount is in paise (multiply by 100)
+                currency: 'INR',
+                name: 'Devyaan Foundation',
+                description: 'Donation for social cause',
+                image: 'https://your-ngo-logo.png', // Add your NGO logo
+                handler: function(response) {
+                    alert('Payment successful! Payment ID: ' + response.razorpay_payment_id);
+                    // You can add AJAX call here to save payment details to your database
+                },
+                prefill: {
+                    name: '',
+                    email: '',
+                    contact: ''
+                },
+                notes: {
+                    address: 'Donation for Devyaan Foundation'
+                },
+                theme: {
+                    color: '#4CAF50'
+                }
+            };
+            
+            const rzp = new Razorpay(options);
+            rzp.open();
+        });
+
+        // Load Razorpay script dynamically
+        const razorpayScript = document.createElement('script');
+        razorpayScript.src = 'https://checkout.razorpay.com/v1/checkout.js';
+        razorpayScript.async = true;
+        document.body.appendChild(razorpayScript);
+    </script>
+</body>
+</html>
