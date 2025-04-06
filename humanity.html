@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devyaan Foundation | Serving Humanity</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: #ffffff;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: black;
+            padding: 0.5rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo-brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            height: 60px;
+            width: auto;
+            /* filter: brightness(0) invert(1); */
+        }
+        
+        .brand-name {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        .brand-name span {
+            color: #2e8b57; /* Green accent for NGO name */
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-links a:hover {
+            color: #2e8b57;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: #2e8b57;
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        .donate-btn {
+    background-color: #2e8b57;
+    color: white !important;
+    padding: 0.8rem 1.5rem; /* Balanced padding */
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-left: 1rem;
+    text-align: center;
+    display: inline-block;
+    min-width: 120px; /* Medium width */
+    width: auto; /* Flexible based on content */
+    height: auto;
+    line-height: 1.4;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: none;
+    cursor: pointer;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+        .donate-btn:hover {
+            background-color: #3aa76d;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: white;
+            font-size: 1.8rem;
+        }
+        
+        @media (max-width: 992px) {
+            .brand-name {
+                font-size: 1.5rem;
+            }
+            .logo {
+                height: 50px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0.5rem 1.5rem;
+            }
+            
+            .brand-name {
+                font-size: 1.3rem;
+            }
+            
+            .logo {
+                height: 40px;
+            }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 50px;
+                left: 0;
+                background-color: black;
+                padding: 1rem 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 0;
+                padding: 1rem 2rem;
+                text-align: center;
+            }
+            
+            .donate-btn {
+                margin-left: 0;
+                margin-top: 0.5rem;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo-brand {
+                gap: 8px;
+            }
+            .brand-name {
+                font-size: 1.1rem;
+            }
+            .logo {
+                height: 35px;
+            }
+        }
+        
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: #f0f0f0;
+        }
+
+        /* Mission Section */
+        .mission {
+            padding: 4rem 2rem;
+            text-align: center;
+            background-color: #ffffff;
+        }
+
+        .mission h2 {
+            font-size: 2.5rem;
+            color: #000000;
+            margin-bottom: 1.5rem;
+        }
+
+        .mission p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* Initiatives Section */
+        .initiatives {
+            padding: 4rem 2rem;
+            background-color: #f9f9f9;
+        }
+
+        .initiatives h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #000000;
+            margin-bottom: 3rem;
+        }
+
+        .initiative-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 350px;
+            transition: transform 0.3s;
+            border-top: 4px solid #4CAF50;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            color: #000000;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: #555;
+        }
+
+        /* Volunteers Section */
+        .volunteers {
+            padding: 4rem 2rem;
+            background-color: #ffffff;
+            text-align: center;
+        }
+
+        .volunteers h2 {
+            font-size: 2.5rem;
+            color: #000000;
+            margin-bottom: 3rem;
+        }
+
+        .team {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-member {
+            width: 250px;
+            text-align: center;
+        }
+
+        .team-member img {
+            width:200px;
+            height: 200px;
+            border-radius: 40%;
+            object-fit: cover;
+            border: 4px solid #4CAF50;
+            margin-bottom: 1rem;
+        }
+
+        .team-member h3 {
+            font-size: 1.3rem;
+            color: #000000;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-member p {
+            color: #555;
+            font-style: italic;
+        }
+
+        /* Button Styles */
+        .btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: #45a049;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #000000;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .footer p {
+            margin: 0.5rem 0;
+            color: #f0f0f0;
+        }
+
+        .social-links {
+            margin: 1rem 0;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 0.5rem;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            color: #4CAF50;
+        }
+
+        /* Responsive Adjustments */
+      
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo-brand">
+            <img src="https://res.cloudinary.com/du7fsy8uw/image/upload/v1743933848/NGO_LOGO_zxfwbp.png" alt="NGO Logo" class="logo">
+            <div class="brand-name">Devayaan <span>Foundation</span></div>
+        </div>
+        
+        <div class="hamburger">☰</div>
+        
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutnew.html">About</a></li>
+            <li><a href="humanity.html">Our Work</a></li>
+            <li><a href="contactnew.html">Contact</a></li>
+            <li><a href="donatenew.html" class="donate-btn">Donate</a></li>
+        </ul>
+    </nav>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>We Serve Humanity</h1>
+        <p>At Devyaan Foundation, we are committed to serving humanity with compassion and dedication. Our mission is to uplift the underprivileged, provide essential services, and create opportunities for a better future.</p>
+        <a href="#volunteers" class="btn">Join as Volunteer</a>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission">
+        <h2>Our Mission</h2>
+        <p>Through our extensive efforts in social welfare, healthcare, education, and environmental conservation, we strive to make a lasting impact on communities in need. We believe in empowering individuals, preserving our cultural and environmental heritage, and fostering kindness toward all living beings.</p>
+    </section>
+
+    <!-- Initiatives Section -->
+    <section class="initiatives" id="initiatives">
+        <h2>Our Initiatives</h2>
+        <div class="initiative-cards">
+            <!-- Food & Shelter Support -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-1.2.1&auto=format&fit=crop&w=350&q=80" alt="Food & Shelter Support">
+                <div class="card-content">
+                    <h3>Food & Shelter Support</h3>
+                    <p>We provide nutritious meals, food distribution programs, and shelter solutions for the homeless, orphaned children, and marginalized communities.</p>
+                    <a href="#food-shelter" style="color: #4CAF50; font-weight: bold;">Learn More →</a>
+                </div>
+            </div>
+            
+            <!-- Education & Empowerment -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=350&q=80" alt="Education & Empowerment">
+                <div class="card-content">
+                    <h3>Education & Empowerment</h3>
+                    <p>We run schools, scholarship programs, and vocational training centers to break the cycle of poverty and empower individuals.</p>
+                    <a href="#education" style="color: #4CAF50; font-weight: bold;">Learn More →</a>
+                </div>
+            </div>
+            
+            <!-- Healthcare & Well-being -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=350&q=80" alt="Healthcare & Well-being">
+                <div class="card-content">
+                    <h3>Healthcare & Well-being</h3>
+                    <p>We provide free healthcare services, medical camps, and mental health support to underserved communities.</p>
+                    <a href="#healthcare" style="color: #4CAF50; font-weight: bold;">Learn More →</a>
+                </div>
+            </div>
+            
+            <!-- Legal Aid & Social Justice -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1589391886645-d51941baf7fb?ixlib=rb-1.2.1&auto=format&fit=crop&w=350&q=80" alt="Legal Aid & Social Justice">
+                <div class="card-content">
+                    <h3>Legal Aid & Social Justice</h3>
+                    <p>We offer free legal assistance and advocate for social justice to protect the rights of vulnerable communities.</p>
+                    <a href="#legal-aid" style="color: #4CAF50; font-weight: bold;">Learn More →</a>
+                </div>
+            </div>
+            
+            <!-- Environmental & Animal Welfare -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1415369629372-26f2fe60c467?ixlib=rb-1.2.1&auto=format&fit=crop&w=350&q=80" alt="Environmental & Animal Welfare">
+                <div class="card-content">
+                    <h3>Environmental & Animal Welfare</h3>
+                    <p>We conduct tree plantation drives, water conservation programs, and rescue animals in need.</p>
+                    <a href="#environment" style="color: #4CAF50; font-weight: bold;">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteers Section -->
+    <section class="volunteers" id="volunteers">
+        <h2>Our Volunteers</h2>
+        <div class="team">
+            <div class="team-member">
+                <img src="https://res.cloudinary.com/du7fsy8uw/image/upload/v1743931136/WhatsApp_Image_2025-04-05_at_12.10.05_a6039998_t4wre2.jpg" alt="Volunteer 1">
+                <h3>Satish Gupta</h3>
+                <!-- <p>Education Program Lead</p> -->
+            </div>
+            <div class="team-member">
+                <img src="https://res.cloudinary.com/du7fsy8uw/image/upload/v1743931136/WhatsApp_Image_2025-04-05_at_12.10.04_8f15e769_vavo1b.jpg" alt="Volunteer 2">
+                <h3>Ravi Chaudhary</h3>
+                <!-- <p>Healthcare Coordinator</p> -->
+            </div>
+            <div class="team-member">
+                <img src="https://res.cloudinary.com/du7fsy8uw/image/upload/v1743931906/WhatsApp_Image_2025-04-05_at_12.10.03_d2b11fc3_dsgdwa.jpg" alt="Volunteer 3">
+                <h3>Nitin Baisla</h3>
+                <!-- <p>Legal Aid Specialist</p> -->
+            </div>
+            <div class="team-member">
+                <img src="https://res.cloudinary.com/du7fsy8uw/image/upload/v1743931136/WhatsApp_Image_2025-04-05_at_12.10.03_e008f770_whaygf.jpg" alt="Volunteer 4">
+                <h3>Pranjal Tiwaari</h3>
+               <!--  <p>Environmental Activist</p> -->
+            </div>
+        </div>
+        <a href="#contact" class="btn" style="margin-top: 2rem;">Become a Volunteer</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2023 Devyaan Foundation. All Rights Reserved.</p>
+        <div class="social-links">
+            <a href="#" aria-label="Facebook">Facebook</a>
+            <a href="#" aria-label="Twitter">Twitter</a>
+            <a href="#" aria-label="Instagram">Instagram</a>
+        </div>
+        <p>Contact us: info@devyaanfoundation.org | +91 XXXXX XXXXX</p>
+    </footer>
+</body>
+</html>

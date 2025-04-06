@@ -36,124 +36,176 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
-         /* Navbar Styles */
-         .navbar {
-        background: linear-gradient(135deg, #000000, #333333); /* Black Gradient */
-        padding: 12px 20px;
-        width: 100%;
-        position: fixed;
-        top: 0;
-        left: 0;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        z-index: 1000;
-    }
-    
-    /* Navbar Container */
-    .nav-container{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-    
-    /* Logo */
-    .logo {
-        font-size: 22px;
-        font-weight: bold;
-        color: #FFFFFF; /* White */
-        text-decoration: none;
-    }
-    
-    /* Navbar Links */
-    .nav-links {
-        list-style: none;
-        display: flex;
-        gap: 20px;
-    }
-    
-    .nav-link {
-        color: #FFFFFF; /* White */
-        font-size: 16px;
-        font-weight: 500;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        padding: 8px 12px;
-        position: relative;
-    }
-    
-    /* Hover Effect */
-    .nav-link::after {
-        content: "";
-        display: block;
-        height: 2px;
-        width: 0;
-        background: #F1F1F1; /* Light Gray */
-        position: absolute;
-        bottom: -4px;
-        left: 50%;
-        transform: translateX(-50%);
-        transition: width 0.3s ease;
-    }
-    
-    .nav-link:hover::after {
-        width: 80%;
-    }
-    
-    /* Donate Button */
-    .donate-btn {
-        background: #FFFFFF; /* White */
-        color: #000000; /* Black */
-        padding: 8px 15px;
-        border-radius: 5px;
-        font-weight: bold;
-        transition: all 0.3s ease;
-    }
-    
-    .donate-btn:hover {
-        background: #F1F1F1; /* Light Gray */
-    }
-    
-    /* Mobile Responsive */
-    .menu-icon {
-        display: none;
-        font-size: 24px;
-        color: white;
-        cursor: pointer;
-    }
-    
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        .nav-links {
-            display: none;
-            flex-direction: column;
-            position: absolute;
-            top: 60px;
-            left: 0;
-            width: 100%;
-            background: #000000;
-            text-align: center;
-            padding: 15px 0;
-        }
-    
-        .nav-links.active {
+        .navbar {
             display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: black;
+            padding: 0.5rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-    
-        .nav-link {
-            padding: 10px;
-            font-size: 18px;
+        
+        .logo-brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
-    
-        .menu-icon {
-            display: block;
+        
+        .logo {
+            height: 60px;
+            width: auto;
+            /* filter: brightness(0) invert(1); */
         }
-    }
-        /* Page content for demo */
-        .content {
-            padding: 2rem;
-            height: 2000px;
-            background-color: #f5f5f5;
+        
+        .brand-name {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        .brand-name span {
+            color: #2e8b57; /* Green accent for NGO name */
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-links a:hover {
+            color: #2e8b57;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: #2e8b57;
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        .donate-btn {
+    background-color: #2e8b57;
+    color: white !important;
+    padding: 0.8rem 1.5rem; /* Balanced padding */
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-left: 1rem;
+    text-align: center;
+    display: inline-block;
+    min-width: 120px; /* Medium width */
+    width: auto; /* Flexible based on content */
+    height: auto;
+    line-height: 1.4;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: none;
+    cursor: pointer;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+        .donate-btn:hover {
+            background-color: #3aa76d;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: white;
+            font-size: 1.8rem;
+        }
+        
+        @media (max-width: 992px) {
+            .brand-name {
+                font-size: 1.5rem;
+            }
+            .logo {
+                height: 50px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0.5rem 1.5rem;
+            }
+            
+            .brand-name {
+                font-size: 1.3rem;
+            }
+            
+            .logo {
+                height: 40px;
+            }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 50px;
+                left: 0;
+                background-color: black;
+                padding: 1rem 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 0;
+                padding: 1rem 2rem;
+                text-align: center;
+            }
+            
+            .donate-btn {
+                margin-left: 0;
+                margin-top: 0.5rem;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo-brand {
+                gap: 8px;
+            }
+            .brand-name {
+                font-size: 1.1rem;
+            }
+            .logo {
+                height: 35px;
+            }
         }
 
         /* Hero Section */
@@ -404,103 +456,37 @@
 <body>
     <!-- Header with Navigation -->
     
-   <!-- Navbar -->
-   <nav style="background: #000; padding: 1rem; position: sticky; top: 0; z-index: 1000;">
-    <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
-        <a href="#" style="color: white; font-size: 1.5rem; font-weight: bold; text-decoration: none;">Devyaan<span style="color: #4CAF50;"> Foundation</span></a>
+    <nav class="navbar">
+        <div class="logo-brand">
+            <img src="https://res.cloudinary.com/du7fsy8uw/image/upload/v1743933848/NGO_LOGO_zxfwbp.png" alt="NGO Logo" class="logo">
+            <div class="brand-name">Devayaan <span>Foundation</span></div>
+        </div>
         
-        <!-- Mobile menu button -->
-        <div id="mobile-menu" style="cursor: pointer; color: white; font-size: 1.5rem;">☰</div>
+        <div class="hamburger">☰</div>
         
-        <!-- Navigation links -->
-        <ul id="nav-links" style="list-style: none; margin: 0; padding: 0; align-items: center;">
-            <li><a href="index.html" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; position: relative; padding: 0.5rem 0;">Home</a></li>
-            <li><a href="aboutnew.html" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; position: relative; padding: 0.5rem 0;">About</a></li>
-            <li><a href="contactnew.html" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; position: relative; padding: 0.5rem 0;">Contact</a></li>
-            <li><a href="donatenew.html" style="background: #4CAF50; color: white; padding: 0.5rem 1.25rem; border-radius: 4px; font-weight: 600; text-decoration: none; transition: background 0.3s;">Donate</a></li>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutnew.html">About</a></li>
+            <li><a href="humanity.html">Our Work</a></li>
+            <li><a href="contactnew.html">Contact</a></li>
+            <li><a href="donatenew.html" class="donate-btn">Donate</a></li>
         </ul>
-    </div>
-</nav>
+    </nav>
 
-<style>
-    /* Default desktop styles */
-    #mobile-menu {
-        display: none;
-    }
-    
-    #nav-links {
-        display: flex;
-        gap: 1.5rem;
-        flex-direction: row;
-    }
-    
-    /* Mobile styles */
-    @media (max-width: 768px) {
-        #mobile-menu {
-            display: block;
-        }
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
         
-        #nav-links {
-            position: fixed;
-            top: 70px;
-            left: -100%;
-            width: 80%;
-            height: calc(100vh - 70px);
-            background: #111;
-            flex-direction: column;
-            align-items: flex-start;
-            padding: 2rem;
-            gap: 1.5rem;
-            transition: left 0.3s ease;
-        }
-        
-        #nav-links.active {
-            left: 0;
-        }
-    }
-</style>
-
-<script>
-    // Mobile menu functionality
-    document.addEventListener('DOMContentLoaded', function() {
-        const mobileMenu = document.getElementById('mobile-menu');
-        const navLinks = document.getElementById('nav-links');
-        
-        // Toggle menu function
-        function toggleMenu() {
+        hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-        }
+        });
         
-        // Set up mobile menu button
-        mobileMenu.addEventListener('click', toggleMenu);
-        
-        // Close menu when clicking a link (for mobile)
-        document.querySelectorAll('#nav-links a').forEach(link => {
-            link.addEventListener('click', function() {
-                if (window.innerWidth <= 768) {
-                    navLinks.classList.remove('active');
-                }
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
             });
         });
-        
-        // Handle window resize
-        function handleResize() {
-            if (window.innerWidth > 768) {
-                navLinks.classList.remove('active');
-            }
-        }
-        
-        // Debounce resize events for better performance
-        let resizeTimer;
-        window.addEventListener('resize', function() {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(handleResize, 250);
-        });
-        
-        // Initial check
-        handleResize();
-    });
-</script>
+    </script>
         
 
     <!-- Hero Section -->
@@ -510,7 +496,7 @@
             <p>Committed to creating positive change and sustainable impact in our communities</p>
         </div>
     </section>
-
+        
     <!-- About Organisation Section -->
     <section id="about" class="section section-white">
         <div class="container">
@@ -520,56 +506,116 @@
                 
                 <p>At Devyaan Foundation, we believe that small actions lead to big changes. Through our various initiatives, we strive to provide essential services, education, and support to those in need while promoting sustainable living and humane treatment of animals.</p>
                 
-                <h3>Our Approach</h3>
-                <ul>
-                    <li><strong>Community-Centered:</strong> We believe in working with communities, not for them</li>
-                    <li><strong>Sustainable Solutions:</strong> Our programs are designed for long-term impact</li>
-                    <li><strong>Evidence-Based:</strong> We use data and research to guide our interventions</li>
-                    <li><strong>Collaborative:</strong> We partner with local organizations and stakeholders</li>
-                </ul>
+                <h2>Our Objectives</h2>
+<ol>
+    <li>
+        <strong>Support for Vulnerable Populations:</strong>
+        <p>We are committed to providing essential resources and services to tribal communities, economically disadvantaged individuals, women, persons with disabilities, the elderly, children, and other marginalized groups. Our initiatives include:</p>
+        <ul>
+            <li><strong>Food and Clothing:</strong> Distributing nutritious meals and clothing to those in need.</li>
+            <li><strong>Education and Training:</strong> Offering educational programs and vocational training to empower individuals.</li>
+            <li><strong>Housing and Healthcare:</strong> Facilitating access to safe housing and healthcare services, including ambulance support and medical assistance.</li>
+        </ul>
+    </li>
+
+    <li>
+        <strong>Awareness Campaigns:</strong>
+        <p>We are committed to organizing various awareness campaigns to educate and inform the public, including:</p>
+        <ul>
+            <li><strong>Campaigns on Public Health:</strong> Disease prevention in collaboration with organizations like WHO and NABARD.</li>
+            <li><strong>Charity Events:</strong> Raising funds and awareness for critical issues.</li>
+            <li><strong>Community Initiatives:</strong> Mass marriage programs that promote social welfare and unity.</li>
+        </ul>
+    </li>
+
+    <li>
+        <strong>Establishment of Health and Education Facilities:</strong>
+        <p>Our NGO aims to address community needs by establishing and operating essential facilities:</p>
+        <ul>
+            <li><strong>Hospitals and Health Services:</strong> Establishing hospitals, clinics, and de-addiction centers to promote health and well-being.</li>
+            <li><strong>Educational Institutions:</strong> Setting up schools and colleges to provide quality education and foster learning.</li>
+        </ul>
+    </li>
+
+    <li>
+        <strong>Animal Welfare Advocacy:</strong>
+        <p>Recognizing the importance of compassion towards animals, we promote animal welfare through various initiatives:</p>
+        <ul>
+            <li><strong>Shelter Construction:</strong> Building and maintaining shelters for stray animals and providing necessary veterinary services.</li>
+            <li><strong>Pet Adoption Awareness:</strong> Raising awareness about the benefits of pet adoption and responsible pet ownership.</li>
+            <li><strong>Community Engagement:</strong> Collaborating with other organizations to create a pet-friendly culture through education and outreach programs.</li>
+        </ul>
+    </li>
+
+    <li>
+        <strong>Our Approach:</strong>
+        <p>We follow a community-first, impact-driven methodology to ensure our efforts bring meaningful and lasting change. Our approach includes:</p>
+        <ul>
+            <li><strong>Community-Centered:</strong> We believe in working <em>with</em> communities, not <em>for</em> them.</li>
+            <li><strong>Sustainable Solutions:</strong> Our programs are designed for long-term impact.</li>
+            <li><strong>Evidence-Based:</strong> We use data and research to guide our interventions.</li>
+            <li><strong>Collaborative:</strong> We partner with local organizations and stakeholders.</li>
+        </ul>
+    </li>
+</ol>
+
             </div>
         </div>
     </section>
 
-    <!-- Organisation Structure Section -->
-    <section id="structure" class="section section-gray">
-        <div class="container">
-            <h2 class="section-title">Organisation Structure</h2>
-            <div class="content-box fade-in">
-                <p>At Devyaan Foundation, our organizational structure is designed to ensure efficient management, transparency, and impactful execution of our initiatives. Led by a dedicated Board of Trustees, our foundation operates through well-defined departments focusing on social welfare, education, healthcare, environmental conservation, and animal welfare. Each department is managed by experienced professionals, volunteers, and community leaders who work collaboratively to implement and oversee programs. We believe in grassroots engagement and participatory decision-making, ensuring that our initiatives effectively address real-world challenges. With a strong network of volunteers, donors, and partner organizations, we foster a structured yet flexible approach to drive meaningful change and serve communities in need.</p>
-            </div>
-            
-           
+  <!-- Organisation Structure Section -->
+<section id="structure" class="section section-gray">
+    <div class="container">
+        <h2 class="section-title">Organisation Structure</h2>
+        <div class="content-box fade-in">
+            <p>
+                At Devyaan Foundation, our organizational structure ensures efficient management, transparency, and impactful program delivery. Guided by a committed Board of Trustees, we operate through dedicated departments focused on social welfare, education, healthcare, environmental conservation, and animal welfare. 
+            </p>
+            <p>
+                Each department is led by experienced professionals, volunteers, and community leaders who collaborate to design, implement, and oversee initiatives. We prioritize grassroots engagement and participatory decision-making to ensure our work addresses real community needs.
+            </p>
+            <p>
+                With a strong network of volunteers, donors, and partner organizations, we maintain a structured yet flexible approach—driving sustainable change and supporting communities in need.
+            </p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Vision Section -->
-    <section id="vision" class="section section-white">
-        <div class="container">
-            <h2 class="section-title">Our Vision</h2>
-            <div class="mv-container">
-                <div class="mv-box fade-in">
-                    <h3>Vision Statement</h3>
-                    <p>At Devyaan Foundation, our vision is to build a world where every individual has equal access to basic necessities, education, healthcare, and justice, ensuring a life of dignity and opportunity. We envision a society that thrives on compassion, sustainability, and inclusivity, where the underprivileged are empowered, the environment is preserved, and animals are treated with care and respect. Through long-term development programs, awareness initiatives, and community-driven efforts, we strive to create a future where no one is left behind, and humanity coexists harmoniously with nature. Our ultimate goal is to foster a self-sufficient, just, and humane world for generations to come.</p>
-                </div>
+<!-- Vision Section -->
+<section id="vision" class="section section-white">
+    <div class="container">
+        <h2 class="section-title">Our Vision</h2>
+        <div class="mv-container">
+            <div class="mv-box fade-in">
+                <h3>Vision Statement</h3>
+                <p>
+                    At Devyaan Foundation, we envision a world where everyone has equal access to basic needs, education, healthcare, and justice—ensuring dignity and opportunity for all. We strive for a society rooted in compassion, sustainability, and inclusivity.
+                </p>
+                <p>
+                    Our vision includes empowering the underprivileged, preserving the environment, and promoting animal welfare. Through long-term development, awareness programs, and community-driven efforts, we aim to create a just, self-reliant, and harmonious world for future generations.
+                </p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Mission Section -->
-    <section id="mission" class="section section-gray">
-        <div class="container">
-            <h2 class="section-title">Our Mission</h2>
-            <div class="mv-container">
-                <div class="mv-box fade-in delay-1">
-                    <h3>Mission Statement</h3>
-                    <p>At Devyaan Foundation, our mission is to uplift and empower underprivileged communities by providing access to food, shelter, education, healthcare, and legal aid, ensuring a life of dignity for all. We are committed to fostering social welfare, environmental conservation, and animal protection through impactful initiatives and awareness programs. By addressing fundamental human needs, advocating for justice, and promoting sustainable development, we strive to create a compassionate, equitable, and inclusive society where every individual—regardless of background—has the opportunity to thrive. Our mission is not just about relief; it’s about long-term transformation and empowerment for a better future.</p>
-                </div>
-                
-               
+<!-- Mission Section -->
+<section id="mission" class="section section-gray">
+    <div class="container">
+        <h2 class="section-title">Our Mission</h2>
+        <div class="mv-container">
+            <div class="mv-box fade-in delay-1">
+                <h3>Mission Statement</h3>
+                <p>
+                    Our mission is to uplift underprivileged communities by ensuring access to food, shelter, education, healthcare, and legal support—promoting a life of dignity for all.
+                </p>
+                <p>
+                    We are committed to social welfare, environmental conservation, and animal protection through impactful initiatives and awareness campaigns. Our focus goes beyond relief—we aim for long-term transformation and inclusive development that empowers individuals and builds a better future.
+                </p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Footer -->
     <footer>

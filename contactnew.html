@@ -20,71 +20,183 @@
 
       /* Navbar Styles */
       .navbar {
-        background-color: #000;
-        color: white;
-        padding: 15px 0;
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      }
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: black;
+            padding: 0.5rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo-brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            height: 60px;
+            width: auto;
+            /* filter: brightness(0) invert(1); */
+        }
+        
+        .brand-name {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        .brand-name span {
+            color: #2e8b57; /* Green accent for NGO name */
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-links a:hover {
+            color: #2e8b57;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: #2e8b57;
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        .donate-btn {
+    background-color: #2e8b57;
+    color: white !important;
+    padding: 0.8rem 1.5rem; /* Balanced padding */
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-left: 1rem;
+    text-align: center;
+    display: inline-block;
+    min-width: 120px; /* Medium width */
+    width: auto; /* Flexible based on content */
+    height: auto;
+    line-height: 1.4;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: none;
+    cursor: pointer;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+        .donate-btn:hover {
+            background-color: #3aa76d;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: white;
+            font-size: 1.8rem;
+        }
+        
+        @media (max-width: 992px) {
+            .brand-name {
+                font-size: 1.5rem;
+            }
+            .logo {
+                height: 50px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0.5rem 1.5rem;
+            }
+            
+            .brand-name {
+                font-size: 1.3rem;
+            }
+            
+            .logo {
+                height: 40px;
+            }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 50px;
+                left: 0;
+                background-color: black;
+                padding: 1rem 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 0;
+                padding: 1rem 2rem;
+                text-align: center;
+            }
+            
+            .donate-btn {
+                margin-left: 0;
+                margin-top: 0.5rem;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo-brand {
+                gap: 8px;
+            }
+            .brand-name {
+                font-size: 1.1rem;
+            }
+            .logo {
+                height: 35px;
+            }
+        }
+     
 
-      .container {
+     .container {
         width: 90%;
         max-width: 1200px;
         margin: 0 auto;
       }
-
-      .nav-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .logo {
-        font-size: 24px;
-        font-weight: bold;
-        color: white;
-        text-decoration: none;
-      }
-
-      .logo span {
-        color: #4caf50; /* NGO accent color */
-      }
-
-      .nav-links {
-        display: flex;
-        list-style: none;
-      }
-
-      .nav-links li {
-        margin-left: 30px;
-      }
-
-      .nav-links a {
-        color: white;
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s;
-      }
-
-      .nav-links a:hover {
-        color: #4caf50;
-      }
-
-      .donate-btn {
-        background-color: #4caf50;
-        color: white;
-        padding: 8px 20px;
-        border-radius: 4px;
-        font-weight: 600;
-      }
-
-      .donate-btn:hover {
-        background-color: #45a049;
-        color: white;
-      }
-
       /* Hero Section */
       .hero {
         background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
@@ -301,103 +413,37 @@
   </head>
   <body>
     <!-- Navbar -->
-    <nav style="background: #000; padding: 1rem; position: sticky; top: 0; z-index: 1000;">
-      <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
-          <a href="#" style="color: white; font-size: 1.5rem; font-weight: bold; text-decoration: none;">Devyaan<span style="color: #4CAF50;"> Foundation</span></a>
-          
-          <!-- Mobile menu button -->
-          <div id="mobile-menu" style="cursor: pointer; color: white; font-size: 1.5rem;">☰</div>
-          
-          <!-- Navigation links -->
-          <ul id="nav-links" style="list-style: none; margin: 0; padding: 0; align-items: center;">
-              <li><a href="index.html" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; position: relative; padding: 0.5rem 0;">Home</a></li>
-              <li><a href="aboutnew.html" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; position: relative; padding: 0.5rem 0;">About</a></li>
-              <li><a href="contactnew.html" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; position: relative; padding: 0.5rem 0;">Contact</a></li>
-              <li><a href="donatenew.html" style="background: #4CAF50; color: white; padding: 0.5rem 1.25rem; border-radius: 4px; font-weight: 600; text-decoration: none; transition: background 0.3s;">Donate</a></li>
-          </ul>
+    <nav class="navbar">
+      <div class="logo-brand">
+          <img src="https://res.cloudinary.com/du7fsy8uw/image/upload/v1743933848/NGO_LOGO_zxfwbp.png" alt="NGO Logo" class="logo">
+          <div class="brand-name">Devayaan <span>Foundation</span></div>
       </div>
+      
+      <div class="hamburger">☰</div>
+      
+      <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="aboutnew.html">About</a></li>
+          <li><a href="humanity.html">Our Work</a></li>
+          <li><a href="contactnew.html">Contact</a></li>
+          <li><a href="donatenew.html" class="donate-btn">Donate</a></li>
+      </ul>
   </nav>
-  
-  <style>
-      /* Default desktop styles */
-      #mobile-menu {
-          display: none;
-      }
-      
-      #nav-links {
-          display: flex;
-          gap: 1.5rem;
-          flex-direction: row;
-      }
-      
-      /* Mobile styles */
-      @media (max-width: 768px) {
-          #mobile-menu {
-              display: block;
-          }
-          
-          #nav-links {
-              position: fixed;
-              top: 70px;
-              left: -100%;
-              width: 80%;
-              height: calc(100vh - 70px);
-              background: #111;
-              flex-direction: column;
-              align-items: flex-start;
-              padding: 2rem;
-              gap: 1.5rem;
-              transition: left 0.3s ease;
-          }
-          
-          #nav-links.active {
-              left: 0;
-          }
-      }
-  </style>
-  
+
   <script>
-      // Mobile menu functionality
-      document.addEventListener('DOMContentLoaded', function() {
-          const mobileMenu = document.getElementById('mobile-menu');
-          const navLinks = document.getElementById('nav-links');
-          
-          // Toggle menu function
-          function toggleMenu() {
-              navLinks.classList.toggle('active');
-          }
-          
-          // Set up mobile menu button
-          mobileMenu.addEventListener('click', toggleMenu);
-          
-          // Close menu when clicking a link (for mobile)
-          document.querySelectorAll('#nav-links a').forEach(link => {
-              link.addEventListener('click', function() {
-                  if (window.innerWidth <= 768) {
-                      navLinks.classList.remove('active');
-                  }
-              });
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+      
+      hamburger.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+      });
+      
+      document.querySelectorAll('.nav-links a').forEach(link => {
+          link.addEventListener('click', () => {
+              navLinks.classList.remove('active');
           });
-          
-          // Handle window resize
-          function handleResize() {
-              if (window.innerWidth > 768) {
-                  navLinks.classList.remove('active');
-              }
-          }
-          
-          // Debounce resize events for better performance
-          let resizeTimer;
-          window.addEventListener('resize', function() {
-              clearTimeout(resizeTimer);
-              resizeTimer = setTimeout(handleResize, 250);
-          });
-          
-          // Initial check
-          handleResize();
       });
   </script>
-
     <!-- Hero Section -->
     <section class="hero">
       <div class="container">
@@ -448,8 +494,9 @@
           </div>
 
           <div class="map-container">
+          <!--   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d876.749364519308!2d77.29089916957949!3d28.47962319848429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce73222d6159d%3A0x71e3247497b57d4e!2sd%2C%206%2C%20Shiv%20Durga%20Vihar%20St%2C%20Shiv%20Durga%20Vihar%2C%20Faridabad%2C%20Haryana%20121009!5e0!3m2!1sen!2sin!4v1743930806353!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.215573291234!2d-73.987844924164!3d40.74844047138911!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d876.749364519308!2d77.29089916957949!3d28.47962319848429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce73222d6159d%3A0x71e3247497b57d4e!2sd%2C%206%2C%20Shiv%20Durga%20Vihar%20St%2C%20Shiv%20Durga%20Vihar%2C%20Faridabad%2C%20Haryana%20121009!5e0!3m2!1sen!2sin!4v1743930806353!5m2!1sen!2sin"
               allowfullscreen=""
               loading="lazy"
             ></iframe>
