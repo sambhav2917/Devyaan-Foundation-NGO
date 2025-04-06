@@ -485,93 +485,184 @@
 
         /* Footer */
         footer {
-            background-color: #000;
-            color: white;
-            padding: 80px 0 30px;
-        }
+    background-color: #000;
+    color: white;
+    padding: 60px 0 30px;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
 
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-            margin-bottom: 50px;
-        }
+.footer-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 50px;
+    margin-bottom: 50px;
+    transition: all 0.6s ease-in-out;
+}
 
-        .footer-logo {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            display: inline-block;
-        }
+.footer-logo {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    display: inline-block;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 
-        .footer-logo span {
-            color: #27ae60;
-        }
+.footer-logo:hover {
+    transform: translateY(-2px);
+}
 
-        .footer-about p {
-            color: #bbb;
-            margin-bottom: 20px;
-        }
+.footer-logo span {
+    color: #27ae60;
+    transition: color 0.3s ease-in-out;
+}
 
-        .social-links a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background-color: #222;
-            color: white;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 40px;
-            margin-right: 10px;
-            transition: background-color 0.3s;
-        }
+.footer-about p {
+    color: #bbb;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    transition: color 0.4s ease;
+}
 
-        .social-links a:hover {
-            background-color: #27ae60;
-        }
+.social-links {
+    margin-top: 20px;
+    transition: all 0.5s ease;
+}
 
-        .footer-links h3, .footer-contact h3 {
-            font-size: 20px;
-            margin-bottom: 25px;
-            color: white;
-        }
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #222;
+    color: white;
+    border-radius: 50%;
+    margin-right: 10px;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
 
-        .footer-links ul {
-            list-style: none;
-        }
+.social-links a:hover {
+    background-color: #27ae60;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+}
 
-        .footer-links li {
-            margin-bottom: 15px;
-        }
+.footer-links h3, 
+.footer-contact h3 {
+    font-size: 20px;
+    margin-bottom: 25px;
+    color: white;
+    position: relative;
+    padding-bottom: 10px;
+    transition: all 0.4s ease;
+}
 
-        .footer-links a {
-            color: #bbb;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
+.footer-links h3::after,
+.footer-contact h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background: #27ae60;
+    transition: width 0.5s ease;
+}
 
-        .footer-links a:hover {
-            color: #27ae60;
-        }
+.footer-links h3:hover::after,
+.footer-contact h3:hover::after {
+    width: 70px;
+}
 
-        .footer-contact p {
-            color: #bbb;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: flex-start;
-        }
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    transition: all 0.5s ease;
+}
 
-        .footer-contact i {
-            margin-right: 10px;
-            color: #27ae60;
-        }
+.footer-links li {
+    margin-bottom: 12px;
+    transition: all 0.3s ease;
+}
 
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #222;
-            color: #bbb;
-        }
+.footer-links a {
+    color: #bbb;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: inline-block;
+    position: relative;
+    padding-left: 0;
+}
+
+.footer-links a:hover {
+    color: #27ae60;
+    transform: translateX(5px);
+    padding-left: 5px;
+}
+
+.footer-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: #27ae60;
+    transition: width 0.3s ease;
+}
+
+.footer-links a:hover::after {
+    width: 100%;
+}
+
+.footer-contact p {
+    color: #bbb;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+    line-height: 1.5;
+    transition: all 0.4s ease;
+}
+
+.footer-contact i {
+    margin-right: 15px;
+    color: #27ae60;
+    margin-top: 3px;
+    transition: transform 0.3s ease;
+}
+
+.footer-contact p:hover i {
+    transform: scale(1.1);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid #222;
+    color: #bbb;
+    font-size: 14px;
+    transition: all 0.5s ease;
+}
+
+/* Responsive adjustments with smooth transitions */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    
+    .footer-links h3,
+    .footer-contact h3 {
+        margin-bottom: 15px;
+    }
+    
+    .footer-links a:hover {
+        transform: translateX(3px);
+    }
+}
+
+/* footer end */
 
         /* Responsive Styles */
         @media (max-width: 1024px) {
@@ -839,12 +930,12 @@
         <div class="container">
             <div class="footer-container">
                 <div class="footer-about">
-                    <a href="#" class="footer-logo">Devyaan <span>Foundation</span></a>
+                    <a href="#" class="footer-logo">Devayaan <span>Foundation</span></a>
                     <p>We are a non-profit organization dedicated to creating sustainable change in communities through education, healthcare, and empowerment initiatives.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/devayaanfoundation?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
@@ -852,13 +943,13 @@
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="aboutnew.html">About Us</a></li>
-                        <li><a href="">Our Programs</a></li>
-                        <li><a href="#">Get Involved</a></li>
+                        <li><a href="aboutnew.html">About</a></li>
+                        <li><a href="humanity.html">Our Work</a></li>
+                        <li><a href="contactnew.html">Contact</a></li>
                         <li><a href="donatenew.html">Donate</a></li>
                     </ul>
                 </div>
-                <div class="footer-links">
+                <!-- <div class="footer-links">
                     <h3>Programs</h3>
                     <ul>
                         <li><a href="#">Education</a></li>
@@ -867,7 +958,7 @@
                         <li><a href="#">Disaster Relief</a></li>
                         <li><a href="#">Community Development</a></li>
                     </ul>
-                </div>
+                </div> -->
                 <div class="footer-contact">
                     <h3>Contact Info</h3>
                     <p><i class="fas fa-map-marker-alt"></i> D-6/66, Shiv Durga Vihar Lakkarpur,Surajkund, Faridabad Haryana – 121009
@@ -879,7 +970,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Devyaan Foundation. All Rights Reserved.</p>
+                <p>&copy; 2025 Devayaan Foundation. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
