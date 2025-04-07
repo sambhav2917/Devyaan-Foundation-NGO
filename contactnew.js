@@ -10,7 +10,7 @@ function sendmail(){
         message: document.getElementById("message").value
     }
     console.log(params);
-    emailjs.send("service_nkvpb7t","template_adhlllo",params).then(alert('Your form has been submitted. Thank you for contacting us.'));
+    emailjs.send("service_5xbv2uq","template_ej4k87m",params).then(alert('Your form has been submitted. Thank you for contacting us.'));
     
 
 
