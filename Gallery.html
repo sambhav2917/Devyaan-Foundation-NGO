@@ -3,25 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevayaanFoundation | Serving Humanity</title>
+    <title>Our Gallery | NGO Name</title>
     <style>
-        /* Global Styles */
+        /* ===== Color Theme ===== */
+        :root {
+            --black: #111111;
+            --white: #f8f8f8;
+            --green: #2e8b57;
+            --light-green: #e8f5e9;
+        }
+
+        /* ===== Base Styles ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            color: #333;
-            background-color: #ffffff;
         }
 
-        /* Navbar */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        /* ===== Navigation ===== */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -193,176 +199,170 @@
                 height: 35px;
             }
         }
-        
-
-        /* Hero Section */
+        /* ===== Hero Section ===== */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c');
             background-size: cover;
             background-position: center;
-            color: white;
+            color: var(--white);
             text-align: center;
-            padding: 5rem 2rem;
+            padding: 6rem 1rem;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: #ffffff;
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            animation: fadeIn 1s ease-out;
         }
 
         .hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
+            max-width: 700px;
             margin: 0 auto 2rem;
-            color: #f0f0f0;
+            font-size: 1.2rem;
+            animation: fadeIn 1s ease-out 0.3s forwards;
+            opacity: 0;
         }
 
-        /* Mission Section */
-        .mission {
-            padding: 4rem 2rem;
-            text-align: center;
-            background-color: #ffffff;
-        }
-
-        .mission h2 {
-            font-size: 2.5rem;
-            color: #000000;
-            margin-bottom: 1.5rem;
-        }
-
-        .mission p {
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-            color: #555;
-        }
-
-        /* Initiatives Section */
-        .initiatives {
-            padding: 4rem 2rem;
-            background-color: #f9f9f9;
-        }
-
-        .initiatives h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            color: #000000;
-            margin-bottom: 3rem;
-        }
-
-        .initiative-cards {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
+        /* ===== Gallery Sections ===== */
+        .section {
+            padding: 5rem 1rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .card {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            width: 350px;
-            transition: transform 0.3s;
-            border-top: 4px solid #4CAF50;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .card-content {
-            padding: 1.5rem;
-        }
-
-        .card h3 {
-            font-size: 1.5rem;
-            color: #000000;
-            margin-bottom: 1rem;
-        }
-
-        .card p {
-            color: #555;
-        }
-
-        /* Volunteers Section */
-        .volunteers {
-            padding: 4rem 2rem;
-            background-color: #ffffff;
+        .section-title {
             text-align: center;
+            margin-bottom: 3.5rem;
+            position: relative;
         }
 
-        .volunteers h2 {
-            font-size: 2.5rem;
-            color: #000000;
-            margin-bottom: 3rem;
-        }
-
-        .team {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .team-member {
-            width: 250px;
-            text-align: center;
-        }
-
-        .team-member img {
-            width:200px;
-            height: 200px;
-            border-radius: 40%;
-            object-fit: cover;
-            border: 4px solid #4CAF50;
-            margin-bottom: 1rem;
-        }
-
-        .team-member h3 {
-            font-size: 1.3rem;
-            color: #000000;
-            margin-bottom: 0.5rem;
-        }
-
-        .team-member p {
-            color: #555;
-            font-style: italic;
-        }
-
-        /* Button Styles */
-        .btn {
-            background: #4CAF50;
-            color: white;
-            border: none;
-            padding: 0.8rem 2rem;
-            font-size: 1rem;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background 0.3s;
-            text-decoration: none;
+        .section-title h2 {
+            font-size: 2.2rem;
             display: inline-block;
+            background-color: var(--white);
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 1;
         }
 
-        .btn:hover {
-            background: #45a049;
+        .section-title::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background-color: var(--green);
+            z-index: 0;
         }
 
-        /* Footer */
-        /* Footer */
-footer {
+        /* ===== Photo Gallery ===== */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            height: 280px;
+            perspective: 1000px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s cubic-bezier(0.2, 0.9, 0.1, 1.1);
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+            animation-delay: calc(var(--delay) * 0.1s);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.8);
+            color: var(--white);
+            padding: 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.1, 1);
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        /* ===== Video Gallery ===== */
+        .video-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .video-item {
+            background-color: var(--black);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .video-item:hover {
+            transform: translateY(-8px);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-info {
+            padding: 1.5rem;
+            background-color: var(--white);
+        }
+
+        .video-info h3 {
+            color: var(--green);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        /* ===== Animations ===== */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== Footer ===== */
+        footer {
     background-color: #000;
     color: white;
     padding: 80px 5% 40px; /* Maintains improved spacing */
@@ -625,16 +625,35 @@ footer {
             }
         }
 
-        /* Responsive Adjustments */
-      
+        /* ===== Responsive Design ===== */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero {
+                padding: 4rem 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .photo-gallery,
+            .video-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
-<link
-rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-/>
 <body>
-    <!-- Navbar -->
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="logo-brand">
             <img src="https://res.cloudinary.com/du7fsy8uw/image/upload/v1743933848/NGO_LOGO_zxfwbp.png" alt="NGO Logo" class="logo">
@@ -668,151 +687,208 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.mi
         });
     </script>
 
+
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <h1>We Serve Humanity</h1>
-        <p>At DevayaanFoundation, we are committed to serving humanity with compassion and dedication. Our mission is to uplift the underprivileged, provide essential services, and create opportunities for a better future.</p>
-        <a href="#volunteers" class="btn">Join as Volunteer</a>
+    <section class="hero">
+        <h1>Our Impact Gallery</h1>
+        <p>Witness the difference we're making through these powerful images and stories</p>
     </section>
 
-    <!-- Mission Section -->
-    <section class="mission">
-        <h2>Our Mission</h2>
-        <p>Through our extensive efforts in social welfare, healthcare, education, and environmental conservation, we strive to make a lasting impact on communities in need. We believe in empowering individuals, preserving our cultural and environmental heritage, and fostering kindness toward all living beings.</p>
-    </section>
-
-    <!-- Initiatives Section -->
-    <section class="initiatives" id="initiatives">
-        <h2>Our Initiatives</h2>
-        <div class="initiative-cards">
-            <!-- Food & Shelter Support -->
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-1.2.1&auto=format&fit=crop&w=350&q=80" alt="Food & Shelter Support">
-                <div class="card-content">
-                    <h3>Food & Shelter Support</h3>
-                    <p>We provide nutritious meals, food distribution programs, and shelter solutions for the homeless, orphaned children, and marginalized communities.</p>
-                    <a href="#food-shelter" style="color: #4CAF50; font-weight: bold;">Learn More →</a>
+    <!-- Photo Gallery Section -->
+    <section class="section">
+        <div class="section-title">
+            <h2>Photo Stories</h2>
+        </div>
+        
+        <div class="photo-gallery">
+            <!-- Photo 1 -->
+            <div class="gallery-item" style="--delay: 1">
+                <img 
+                    src="https://res.cloudinary.com/du7fsy8uw/image/upload/v1727075122/samples/sheep.jpg" 
+                    alt="Children learning in classroom"
+                    loading="lazy"
+                >
+                <div class="gallery-caption">
+                    <h3>Education Program</h3>
+                    <p>Students in our rural school initiative</p>
                 </div>
             </div>
             
-            <!-- Education & Empowerment -->
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=350&q=80" alt="Education & Empowerment">
-                <div class="card-content">
-                    <h3>Education & Empowerment</h3>
-                    <p>We run schools, scholarship programs, and vocational training centers to break the cycle of poverty and empower individuals.</p>
-                    <a href="#education" style="color: #4CAF50; font-weight: bold;">Learn More →</a>
+            <!-- Photo 2 -->
+            <div class="gallery-item" style="--delay: 2">
+                <img 
+                    src="https://res.cloudinary.com/du7fsy8uw/image/upload/v1727075122/samples/sheep.jpg" 
+                    alt="Medical camp"
+                    loading="lazy"
+                >
+                <div class="gallery-caption">
+                    <h3>Health Camp</h3>
+                    <p>Free medical services in remote areas</p>
                 </div>
             </div>
             
-            <!-- Healthcare & Well-being -->
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=350&q=80" alt="Healthcare & Well-being">
-                <div class="card-content">
-                    <h3>Healthcare & Well-being</h3>
-                    <p>We provide free healthcare services, medical camps, and mental health support to underserved communities.</p>
-                    <a href="#healthcare" style="color: #4CAF50; font-weight: bold;">Learn More →</a>
+            <!-- Photo 3 -->
+            <div class="gallery-item" style="--delay: 3">
+                <img 
+                    src="https://res.cloudinary.com/du7fsy8uw/image/upload/v1727075122/samples/sheep.jpg" 
+                    alt="Clean water project"
+                    loading="lazy"
+                >
+                <div class="gallery-caption">
+                    <h3>Water Project</h3>
+                    <p>Celebrating clean water access</p>
                 </div>
             </div>
             
-            <!-- Legal Aid & Social Justice -->
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1589391886645-d51941baf7fb?ixlib=rb-1.2.1&auto=format&fit=crop&w=350&q=80" alt="Legal Aid & Social Justice">
-                <div class="card-content">
-                    <h3>Legal Aid & Social Justice</h3>
-                    <p>We offer free legal assistance and advocate for social justice to protect the rights of vulnerable communities.</p>
-                    <a href="#legal-aid" style="color: #4CAF50; font-weight: bold;">Learn More →</a>
+            <!-- Photo 4 -->
+            <div class="gallery-item" style="--delay: 4">
+                <img 
+                    src="https://res.cloudinary.com/du7fsy8uw/image/upload/v1727075122/samples/sheep.jpg" 
+                    alt="Women's workshop"
+                    loading="lazy"
+                >
+                <div class="gallery-caption">
+                    <h3>Women's Workshop</h3>
+                    <p>Vocational training sessions</p>
                 </div>
             </div>
             
-            <!-- Environmental & Animal Welfare -->
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1415369629372-26f2fe60c467?ixlib=rb-1.2.1&auto=format&fit=crop&w=350&q=80" alt="Environmental & Animal Welfare">
-                <div class="card-content">
-                    <h3>Environmental & Animal Welfare</h3>
-                    <p>We conduct tree plantation drives, water conservation programs, and rescue animals in need.</p>
-                    <a href="#environment" style="color: #4CAF50; font-weight: bold;">Learn More →</a>
+            <!-- Photo 5 -->
+            <div class="gallery-item" style="--delay: 5">
+                <img 
+                    src="https://res.cloudinary.com/du7fsy8uw/image/upload/v1727075122/samples/sheep.jpg" 
+                    alt="Tree plantation"
+                    loading="lazy"
+                >
+                <div class="gallery-caption">
+                    <h3>Environment Day</h3>
+                    <p>Community tree planting drive</p>
+                </div>
+            </div>
+            
+            <!-- Photo 6 -->
+            <div class="gallery-item" style="--delay: 6">
+                <img 
+                    src="https://res.cloudinary.com/du7fsy8uw/image/upload/v1727075122/samples/sheep.jpg" 
+                    alt="Food distribution"
+                    loading="lazy"
+                >
+                <div class="gallery-caption">
+                    <h3>Food Relief</h3>
+                    <p>Distributing meals to families in need</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Volunteers Section -->
-    <section class="volunteers" id="volunteers">
-        <h2>Our Volunteers</h2>
-        <div class="team">
-            <div class="team-member">
-                <img src="https://res.cloudinary.com/du7fsy8uw/image/upload/v1743931136/WhatsApp_Image_2025-04-05_at_12.10.05_a6039998_t4wre2.jpg" alt="Volunteer 1">
-                <h3>Satish Gupta</h3>
-                <!-- <p>Education Program Lead</p> -->
+    <!-- Video Gallery Section -->
+    <section class="section">
+        <div class="section-title">
+            <h2>Video Stories</h2>
+        </div>
+        
+        <div class="video-gallery">
+            <!-- Video 1 -->
+            <div class="video-item">
+                <div class="video-container">
+                    <iframe 
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0" 
+                        title="Education transformation video"
+                        loading="lazy"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>Education Transformation</h3>
+                    <p>How we're changing lives through learning</p>
+                </div>
             </div>
-            <div class="team-member">
-                <img src="https://res.cloudinary.com/du7fsy8uw/image/upload/v1743931136/WhatsApp_Image_2025-04-05_at_12.10.04_8f15e769_vavo1b.jpg" alt="Volunteer 2">
-                <h3>Ravi Chaudhary</h3>
-                <!-- <p>Healthcare Coordinator</p> -->
+            
+            <!-- Video 2 -->
+            <div class="video-item">
+                <div class="video-container">
+                    <iframe 
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0" 
+                        title="Clean water project video"
+                        loading="lazy"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>Clean Water Project</h3>
+                    <p>Bringing sustainable solutions to villages</p>
+                </div>
             </div>
-            <div class="team-member">
-                <img src="https://res.cloudinary.com/du7fsy8uw/image/upload/v1743931906/WhatsApp_Image_2025-04-05_at_12.10.03_d2b11fc3_dsgdwa.jpg" alt="Volunteer 3">
-                <h3>Nitin Baisla</h3>
-                <!-- <p>Legal Aid Specialist</p> -->
-            </div>
-            <div class="team-member">
-                <img src="https://res.cloudinary.com/du7fsy8uw/image/upload/v1743931136/WhatsApp_Image_2025-04-05_at_12.10.03_e008f770_whaygf.jpg" alt="Volunteer 4">
-                <h3>Pranjal Tiwaari</h3>
-               <!--  <p>Environmental Activist</p> -->
+            
+            <!-- Video 3 -->
+            <div class="video-item">
+                <div class="video-container">
+                    <iframe 
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0" 
+                        title="Volunteer stories video"
+                        loading="lazy"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>Volunteer Stories</h3>
+                    <p>Hear from those making a difference</p>
+                </div>
             </div>
         </div>
-        <a href="contactnew.html" class="btn" style="margin-top: 2rem;">Become a Volunteer</a>
     </section>
 
     <!-- Footer -->
-      <footer>
-      <div class="container">
-          <div class="footer-container">
-              <div class="footer-about">
-                  <a href="#" class="footer-logo" style="color: white;">Devayaan <span>Foundation</span></a>
-                  <p>We are a non-profit organization dedicated to creating sustainable change in communities through education, healthcare, and empowerment initiatives.</p>
-                  <div class="social-links">
-                      <a href="https://www.facebook.com/share/1ELND9nuL1/"><i class="fab fa-facebook-f"></i></a>
-                      <a href="#"><i class="fab fa-twitter"></i></a>
-                      <a href="https://www.instagram.com/devayaanfoundation?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fab fa-instagram"></i></a>
-                      <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                  </div>
-              </div>
-              <div class="footer-links">
-                  <h3>Quick Links</h3>
-                  <ul>
-                      <li><a href="index.html">Home</a></li>
-                      <li><a href="aboutnew.html">About</a></li>
-                      <li><a href="humanity.html">Our Work</a></li>
-                      <li><a href="contactnew.html">Contact</a></li>
-                      <li><a href="donatenew.html">Donate</a></li>
-                  </ul>
-              </div>
-              <!-- <div class="footer-links">
-                  <h3>Programs</h3>
-                  <ul>
-                      <li><a href="#">Education</a></li>
-                      <li><a href="#">Healthcare</a></li>
-                      <li><a href="#">Women Empowerment</a></li>
-                      <li><a href="#">Disaster Relief</a></li>
-                      <li><a href="#">Community Development</a></li>
-                  </ul>
-              </div> -->
-              <div class="footer-contact">
-                  <h3>Contact Info</h3>
-                  <p><i class="fas fa-map-marker-alt"></i> D-6/66, Shiv Durga Vihar Lakkarpur,Surajkund, Faridabad Haryana – 121009
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo" style="color: white;">Devayaan <span>Foundation</span></a>
+                    <p>We are a non-profit organization dedicated to creating sustainable change in communities through education, healthcare, and empowerment initiatives.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/1ELND9nuL1/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/devayaanfoundation?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="aboutnew.html">About</a></li>
+                        <li><a href="humanity.html">Our Work</a></li>
+                        <li><a href="contactnew.html">Contact</a></li>
+                        <li><a href="donatenew.html">Donate</a></li>
+                    </ul>
+                </div>
+                <!-- <div class="footer-links">
+                    <h3>Programs</h3>
+                    <ul>
+                        <li><a href="#">Education</a></li>
+                        <li><a href="#">Healthcare</a></li>
+                        <li><a href="#">Women Empowerment</a></li>
+                        <li><a href="#">Disaster Relief</a></li>
+                        <li><a href="#">Community Development</a></li>
+                    </ul>
+                </div> -->
+                <div class="footer-contact">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> D-6/66, Shiv Durga Vihar Lakkarpur,Surajkund, Faridabad Haryana – 121009
 
-                  </p>
-                  <p><i class="fas fa-phone-alt"></i> +91 9716606666</p>
-                  <p><i class="fas fa-envelope"></i> devayaan001@gmail.com
-                  </p>
-              </div>
-          </div>
-          <div class="copyright">
-              <p>&copy; 2025 Devayaan Foundation. All Rights Reserved.</p>
-          </div>
-      </div>
-  </footer>
+                    </p>
+                    <p><i class="fas fa-phone-alt"></i> +91 9716606666</p>
+                    <p><i class="fas fa-envelope"></i> devayaan001@gmail.com
+                    </p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Devayaan Foundation. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </body>
 </html>
